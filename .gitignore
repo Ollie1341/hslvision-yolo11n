@@ -1,0 +1,21 @@
+# --- Python env ---
+.venv/
+__pycache__/
+*.pyc
+
+# --- Data (regenerable; ~7.6 GB) ---
+# raw/     : HF parquet download   -> `hf download whirlwind-ams/hslvision`
+# dataset/ : YOLO images + labels  -> `python convert.py`
+raw/
+dataset/
+
+# --- Pretrained checkpoints (auto-downloaded by ultralytics) ---
+yolo11n.pt
+yolo26n.pt
+
+# --- Redundant / noisy artifacts ---
+runs/**/last.pt
+runs/detect/
+label_check/
+train.log
+*.cache

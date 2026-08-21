@@ -1,0 +1,11 @@
+torch==2.13.0
+torchvision==0.28.0
+ultralytics==8.4.124
+onnx==1.22.0
+onnxruntime==1.29.0
+onnxslim==0.1.96
+huggingface-hub==1.28.0
+pyarrow==25.0.1
+pillow==12.3.0
+numpy==2.5.2
+opencv-python==5.0.0.93

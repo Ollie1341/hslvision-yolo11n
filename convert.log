@@ -1,0 +1,31 @@
+  [train] done train-00000-of-00009.parquet (472 imgs)
+  [train] done train-00001-of-00009.parquet (944 imgs)
+  [train] done train-00002-of-00009.parquet (1416 imgs)
+  [train] done train-00003-of-00009.parquet (1888 imgs)
+  [train] done train-00004-of-00009.parquet (2360 imgs)
+  [train] done train-00005-of-00009.parquet (2832 imgs)
+  [train] done train-00006-of-00009.parquet (3304 imgs)
+  [train] done train-00007-of-00009.parquet (3776 imgs)
+  [train] done train-00008-of-00009.parquet (4247 imgs)
+train: 4247 images, 45519 boxes | clipped=1957 dropped=0 background=0 empty_imgs=77 dup_stems=0 size_meta_mismatch=0
+  [valid] done valid-00000-of-00002.parquet (455 imgs)
+  [valid] done valid-00001-of-00002.parquet (910 imgs)
+valid: 910 images, 9925 boxes | clipped=347 dropped=0 background=0 empty_imgs=25 dup_stems=0 size_meta_mismatch=0
+  [test] done test-00000-of-00002.parquet (456 imgs)
+  [test] done test-00001-of-00002.parquet (911 imgs)
+test: 911 images, 9841 boxes | clipped=419 dropped=0 background=0 empty_imgs=28 dup_stems=0 size_meta_mismatch=0
+
+=== SUMMARY ===
+  train   4247 images   45519 boxes
+  valid    910 images    9925 boxes
+  test     911 images    9841 boxes
+  TOTAL   6068 images   65285 boxes   (card: 6068 imgs / 65285 boxes)
+
+=== CLASS DISTRIBUTION ===
+  0 Ball               3344
+  1 Goalpost           7084
+  2 K1                14996
+  3 L-Intersections   17918
+  4 Penalty Marks      3820
+  5 T-Intersections   13117
+  6 X-Intersections    5006
