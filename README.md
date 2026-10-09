@@ -1,10 +1,10 @@
-# yolo11n on HSLVision
+# yolo26n on HSLVision
 
-YOLO11n object detector for the RoboCup Humanoid Soccer League, trained on
+yolo26n object detector for the RoboCup Humanoid Soccer League, trained on
 [whirlwind-ams/hslvision](https://huggingface.co/datasets/whirlwind-ams/hslvision)
 and exported to ONNX for deployment.
 
-**Trained model:** `runs/yolo11n-hslvision/weights/best.onnx` (10.1 MB, opset 12)
+**Trained model:** `runs/yolo26n-hslvision/weights/best.onnx` (10.1 MB, opset 12)
 
 ## Results — held-out test split (911 images, 9,841 boxes)
 
@@ -75,7 +75,7 @@ while Ball (3,344) and Penalty Marks (3,820) are ~5x rarer.
 
 ## Training setup
 
-yolo11n · 100 epochs · imgsz 640 · batch 32 · AdamW (auto, lr 9.09e-4) · AMP ·
+yolo26n · 100 epochs · imgsz 640 · batch 32 · AdamW (auto, lr 9.09e-4) · AMP ·
 RAM-cached images · patience 25. Ran 43 min on an RTX 5060 Laptop (8 GB), peak
 4.3 GB VRAM.
 
@@ -122,7 +122,7 @@ fixed resolution.
 ## Not in git
 
 `raw/` (6 GB parquet), `dataset/` (1.6 GB converted images), `.venv/` (5.6 GB)
-and pretrained `yolo11n.pt` are excluded — all are regenerable via the commands
+and pretrained `yolo26n.pt` are excluded — all are regenerable via the commands
 above.
 
 ## License

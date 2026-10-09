@@ -1,21 +1,23 @@
-"""Train yolo11n on HSLVision, eval on the held-out test split, export ONNX."""
+"""Train yolo26m on HSLVision, eval on the held-out test split, export ONNX."""
 from pathlib import Path
 from ultralytics import YOLO
 
 ROOT = Path(__file__).parent
 DATA = str(ROOT / "hslvision.yaml")
-RUN = "yolo11n-hslvision"
+RUN = "yolo26m-hslvision"
 
 if __name__ == "__main__":
-    model = YOLO("yolo11n.pt")
+    # Changed the model to yolo26m
+    model = YOLO("yolo26m.pt")
 
     model.train(
         data=DATA,
-        epochs=100,
+        epochs=500,
         imgsz=640,
         batch=32,
         device=0,
-        workers=8,
+        # Increased the workers to 16 for faster data loading
+        workers=16,
         cache="ram",          # ~6GB, plenty of headroom; avoids IO bottleneck
         amp=True,
         seed=0,

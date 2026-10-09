@@ -2,7 +2,7 @@
 import csv, sys
 from pathlib import Path
 
-p = Path(__file__).parent / "runs" / "yolo11n-hslvision" / "results.csv"
+p = Path(__file__).parent / "runs" / "yolo26n-hslvision" / "results.csv"
 rows = list(csv.DictReader(p.open()))
 if not rows:
     sys.exit("no rows yet")
