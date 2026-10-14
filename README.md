@@ -8,23 +8,23 @@ and exported to ONNX for deployment.
 
 ## Results — held-out test split (911 images, 9,841 boxes)
 
-| metric | PyTorch `best.pt` | ONNX `best.onnx` |
-| --- | --- | --- |
-| mAP50 | 0.9478 | 0.9464 |
-| mAP50-95 | 0.6919 | 0.6938 |
-| mAP75 | 0.7700 | 0.7702 |
+| metric   | PyTorch `best.pt` | ONNX `best.onnx` |
+| -------- | ----------------- | ---------------- |
+| mAP50    | 0.9478            | 0.9464           |
+| mAP50-95 | 0.6919            | 0.6938           |
+| mAP75    | 0.7700            | 0.7702           |
 
 Precision 0.956 · Recall 0.906 · 1.5 ms/image on an RTX 5060 Laptop GPU.
 
-| class | mAP50 | mAP50-95 | test instances |
-| --- | --- | --- | --- |
-| X-Intersections | 0.984 | 0.705 | 765 |
-| Goalpost | 0.979 | 0.790 | 1081 |
-| K1 (robots) | 0.972 | 0.798 | 2213 |
-| Ball | 0.940 | 0.765 | 498 |
-| L-Intersections | 0.932 | 0.626 | 2708 |
-| Penalty Marks | 0.921 | 0.617 | 547 |
-| T-Intersections | 0.907 | 0.544 | 2029 |
+| class           | mAP50 | mAP50-95 | test instances |
+| --------------- | ----- | -------- | -------------- |
+| X-Intersections | 0.984 | 0.705    | 765            |
+| Goalpost        | 0.979 | 0.790    | 1081           |
+| K1 (robots)     | 0.972 | 0.798    | 2213           |
+| Ball            | 0.940 | 0.765    | 498            |
+| L-Intersections | 0.932 | 0.626    | 2708           |
+| Penalty Marks   | 0.921 | 0.617    | 547            |
+| T-Intersections | 0.907 | 0.544    | 2029           |
 
 T/L/X-Intersections are the weakest classes — they are visually near-identical
 patches distinguished only by line topology, and the residual error is
@@ -83,7 +83,7 @@ Early stopping never triggered — all 100 epochs ran and validation was still
 improving at the end, so the ceiling is model capacity rather than overfitting.
 Validation box/cls/dfl losses fell monotonically alongside train losses; the
 val-loss slope never turned positive (`overfit_check.py` monitors this). Test
-mAP50-95 (0.692) came in slightly *above* validation (0.684), consistent with
+mAP50-95 (0.692) came in slightly _above_ validation (0.684), consistent with
 genuine generalization.
 
 Export uses `best.pt` (peak-fitness checkpoint), not `last.pt`, and the test
@@ -95,15 +95,15 @@ split was untouched during training and model selection.
 
 ## Scripts
 
-| file | purpose |
-| --- | --- |
-| `setup.sh` | env + dataset download, with retries |
-| `convert.py` | HF parquet -> YOLO images/labels, with reconciliation counts |
-| `check_bbox.py` | proves the bbox convention against the `area` field |
-| `verify_labels.py` | renders labels onto images; audits coord ranges |
-| `train.py` | train, evaluate on test split, export ONNX |
-| `overfit_check.py` | train/val loss-slope diagnostic, overfitting verdict |
-| `verify_onnx.py` | ONNX vs PyTorch equivalence (per-channel tolerances) |
+| file               | purpose                                                      |
+| ------------------ | ------------------------------------------------------------ |
+| `setup.sh`         | env + dataset download, with retries                         |
+| `convert.py`       | HF parquet -> YOLO images/labels, with reconciliation counts |
+| `check_bbox.py`    | proves the bbox convention against the `area` field          |
+| `verify_labels.py` | renders labels onto images; audits coord ranges              |
+| `train.py`         | train, evaluate on test split, export ONNX                   |
+| `overfit_check.py` | train/val loss-slope diagnostic, overfitting verdict         |
+| `verify_onnx.py`   | ONNX vs PyTorch equivalence (per-channel tolerances)         |
 
 ### ONNX verification
 
